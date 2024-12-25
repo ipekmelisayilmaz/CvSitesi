@@ -30,5 +30,9 @@ namespace MvcCv.Controllers
         {
             return View();//geriye bir şey döndürmeli view ile sayfa döndürür
         }
+        public ActionResult Test2()
+        {
+            return View();  
+        }
     }
 }
