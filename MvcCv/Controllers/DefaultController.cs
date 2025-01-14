@@ -31,5 +31,29 @@ namespace MvcCv.Controllers
             var yetenekler = db.TblYeteneklerim.ToList();
             return PartialView(yetenekler);
         }
+        public PartialViewResult Hobilerim()
+        {
+            var hobiler = db.TblHobilerim.ToList();
+            return PartialView(hobiler);
+        }
+        public PartialViewResult Sertifikalar()
+        {
+            var sertifikalar = db.TblSertifikalarım.ToList();
+            return PartialView(sertifikalar);
+        }
+        [HttpGet]
+        public PartialViewResult iletisim()//sayfa yüklendiğinde burası çalışır
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult iletisim(Tbliletisim t)//bu partialview'in içine bir parametre atmak lazım çünkü butona basıldığında burası çalışır
+        {
+            t.Tarih=DateTime.Parse(DateTime.Now.ToShortDateString());
+            db.Tbliletisim.Add(t);  
+            db.SaveChanges();
+            return PartialView();
+        }
+
     }
 }
