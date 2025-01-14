@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web;
 using MvcCv.Models.Entity;
 namespace MvcCv.Repositories
@@ -9,7 +10,7 @@ namespace MvcCv.Repositories
     public class GenericRepository<T> where T : class, new()
     {
         DbCvEntities db = new DbCvEntities();
-        public List<T> List()//EF KOMUTLARINDAN LİSTELEME
+        public List<T> List()//LİSTELEME
         {
         return db.Set<T>().ToList();    // T değeri bütün tablolar olabilir
         }
@@ -27,9 +28,13 @@ namespace MvcCv.Repositories
         {
             return db.Set<T>().Find(id);    
         }
-        public void TUpdate(T p)
+        public void TUpdate(T p)//Güncelle
         {
             db.SaveChanges();
+        }
+        public T Find(Expression<Func<T, bool>> where)
+        {
+            return db.Set<T>().FirstOrDefault(where);   
         }
     }
 }
