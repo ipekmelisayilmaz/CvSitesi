@@ -1,23 +1,26 @@
-﻿
+﻿@model MvcCv.Models.Entity.TblDeneyimlerim
 @{
     ViewBag.Title = "DeneyimGetir";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <br />
 <h4>Deneyim Güncelleme Sayfası</h4>
 <br />
 <form class="form-control" method="post">
+    @Html.Label("Deneyim ID")
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
     <br />
-    <input type="text" name="ID" class="form-control" placeholder="Id" />
+    @Html.Label("Başlık")
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
     <br />
-    <input type="text" name="Baslik" class="form-control" placeholder="Başlığı yazınız" />
+    @Html.Label("Alt Başlık")
+    @Html.TextBoxFor(x => x.AltBaslik, new { @class = "form-control" })
     <br />
-    <input type="text" name="AltBaslik" class="form-control" placeholder="Alt başlık" />
+    @Html.Label("Tarih")
+    @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
     <br />
-    <input type="text" name="Tarih" class="form-control" placeholder="Çalışma tarihi" />
-    <br />
-    <textarea placeholder="Açıklamanızı giriniz" name="Aciklama" class="form-control" rows="5"></textarea>
+    @Html.Label("Açıklama")
+    @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control" })
     <br />
     <button class="btn btn-info">Güncelle</button>
 </form>
