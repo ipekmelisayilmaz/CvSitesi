@@ -14,7 +14,7 @@ namespace MvcCv.Models.Entity
     
     public partial class TblHakkimda
     {
-        public int ID { get; set; }//sql'deki tablolar sýnýfa sütunlar property'e dönüþtürüldü DB First Code first'de tam tersi
+        public int ID { get; set; }
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public string Adres { get; set; }

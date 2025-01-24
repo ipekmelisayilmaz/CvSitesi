@@ -10,7 +10,8 @@ namespace MvcCv.Controllers
 {
     public class YetenekController : Controller
     {
-        GenericRepository<TblYeteneklerim> repo = new GenericRepository<TblYeteneklerim>();
+        GenericRepository<TblYeteneklerim> repo = new
+            GenericRepository<TblYeteneklerim>();
         public ActionResult Index()
         {
             var yetenekler = repo.List();

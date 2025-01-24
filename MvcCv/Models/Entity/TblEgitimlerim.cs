@@ -18,7 +18,6 @@ namespace MvcCv.Models.Entity
         public string Baslik { get; set; }
         public string AltBaslik1 { get; set; }
         public string AltBaslik2 { get; set; }
-        public string GNO { get; set; }
         public string Tarih { get; set; }
     }
 }
