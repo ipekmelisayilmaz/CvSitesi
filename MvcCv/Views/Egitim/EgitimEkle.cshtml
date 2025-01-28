@@ -15,6 +15,7 @@
     <br />
     @Html.Label("Başlık")
     @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Baslik,"",new {@style="color:red"})
     <br />
     @Html.Label("Alt Başlık 1")
     @Html.TextBoxFor(x => x.AltBaslik1, new { @class = "form-control" })
@@ -24,6 +25,7 @@
     <br />
     @Html.Label("Tarih")
     @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    <br />
     <button class="btn btn-info">Kaydet</button>
 </form>
 

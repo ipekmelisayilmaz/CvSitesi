@@ -1,25 +1,152 @@
-﻿
+﻿@using MvcCv.Models.Entity
+@model List<TblHakkimda>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<br />
+<h2>Hakkımda Düzenleme Sayfası</h2>
+<br />
+<form method="post">
+    @foreach (var item in Model)
+    {
+        <label>Ad</label>
+        <input type="text" name="Ad" value="@item.Ad" class="form-control" />
+        <br />
+        <label>Soyad</label>
+        <input type="text" name="Soyad" value="@item.Soyad" class="form-control" />
+        <br />
+        <label>Adres</label>
+        <input type="text" name="Adres" value="@item.Adres" class="form-control" />
+        <br />
+        <label>Telefon</label>
+        <input type="text" name="Telefon" value="@item.Telefon" class="form-control" />
+        <br />
+        <label>Mail Adresi</label>
+        <input type="text" name="Mail" value="@item.Mail" class="form-control" />
+        <br />
+        <label>Resim</label>
+        <input type="text" name="Resim" value="@item.Resim" class="form-control" />
+        <br />
+        <label>Açıklama</label>
+        <textarea rows="5" class="form-control" name="Aciklama">@item.Aciklama</textarea>
 
-<h2>Hakkımda Menüsü</h2>
-<table class="table table-bordered">
-    <tr>
-        <th>Id</th>
-        <th>Ad</th>
-        <th>Şehir</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>Murat</td>
-        <td>İstanbul</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Mesut</td>
-        <td>Adana</td>
-    </tr>
-</table>
+    }
+    <br />
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+
+<style>
+    /* Formu sol menüye hizala ve genişliğini artır */
+    form {
+        width: calc(100% - 240px); /* Sol menü genişliğini dikkate alarak genişlik ayarla */
+        margin: 20px auto 20px 20px;
+         /* Sol menü genişliği kadar boşluk bırak */
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+    }
+
+    /* Genel Sayfa Stili */
+    body {
+        background-color: #f4f6f9; /* Varsayılan açık gri arka plan */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    h2 {
+        margin-left: 240px; /* Başlık da sola hizalı olmalı */
+        padding-top: 20px;
+        color: #333;
+        font-size: 1.8rem;
+    }
+
+    /* Etiketler ve Giriş Elemanları */
+    label {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .form-control {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+        color: #333;
+        background-color: #f9f9f9;
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #3c8dbc;
+        box-shadow: 0 0 8px rgba(60, 141, 188, 0.4);
+        outline: none;
+    }
+
+    /* Güncelle Butonu */
+    .btn-success {
+        width: 100%; /* Buton genişliği form genişliği ile uyumlu */
+        padding: 12px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #3c8dbc;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-success:hover {
+        background-color: #357ca5;
+        transform: scale(1.02);
+    }
+
+    .btn-success:active {
+        transform: scale(0.98);
+    }
+
+    
+
+        h2 {
+            margin-left: 0;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .btn-success {
+            font-size: 1rem;
+            padding: 10px;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

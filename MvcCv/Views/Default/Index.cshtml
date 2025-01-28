@@ -1,9 +1,6 @@
 ﻿@using MvcCv.Models.Entity
 @model List<TblHakkimda>
 
-
-
-
 @{
     Layout = null;
 }
@@ -17,98 +14,801 @@
     <meta name="author" content="" />
     <title>Resume - Start Bootstrap Theme</title>
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
+    <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- Bootstrap & Custom CSS -->
     <link href="/startbootstrap-resume-gh-pages/css/styles.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <style>
+        /* Genel Arka Plan */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #d9a5c4, #78226c); /* Daha açık, pastel tonlar */
+            color: #fff;
+        }
+
+
+
+        #contact button {
+            background-color: #360c49; /* Butonun arka plan rengi */
+            color: #ffffff; /* Buton yazısı */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+            #contact button:hover {
+                background-color: #4d1e66; /* Hover efekti için daha koyu renk */
+            }
+
+        /* Navbar */
+        .navbar {
+            background-color: #360c49;
+            border-radius: 100px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .nav-link {
+            color: #ffffff;
+            font-size: 1.1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem; /* Aralık ekleyerek daha ferah bir görünüm */
+            transition: 0.3s ease;
+        }
+
+            .nav-link:hover {
+                background-color: #fff;
+                color: #78226c;
+            }
+
+            .nav-link:focus, .nav-link:active {
+                background-color: #6a2e7b !important;
+                color: #ffffff !important;
+                outline: none !important;
+                box-shadow: none !important;
+            }
+
+        /* Profil Fotoğrafı */
+        .img-profile {
+            border: 5px solid #fff;
+            transition: transform 0.5s ease;
+        }
+
+            .img-profile:hover {
+                transform: scale(1.1);
+            }
+
+        /* Başlık ve Metin */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif; /* Zarif ve modern yazı tipi */
+            font-weight: 500; /* Çok kalın yazı */
+            color: #360c49;
+            letter-spacing: 2px; /* Harfler arası boşluk */
+            text-transform: full-width;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .subheading {
+            margin-left: 20px; /* Alt başlık girintisi */
+            color: #eee;
+            font-size: 1.2rem; /* Yazı boyutu */
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        /* Mail Linki */
+        .mail-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+        }
+
+            .mail-link:hover {
+                text-decoration: underline;
+            }
+
+
+        /* Sol menüdeki linklerin varsayılan rengi */
+        .nav-link {
+            color: #ffffff; /* Varsayılan beyaz renk */
+            font-size: 1.1rem;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            margin-bottom: 0.5rem;
+            transition: 0.3s ease;
+            text-decoration: none; /* Alt çizgi olmasın */
+        }
+
+            /* Linklere dokunulduğunda veya tıklanıldığında */
+            .nav-link:focus, .nav-link:active, .nav-link:hover {
+                background-color: #360c49 !important; /* Sadece bu renk olsun */
+                color: #ffffff !important; /* Yazı rengi değişmesin */
+                outline: none !important;
+                text-decoration: none; /* Alt çizgi olmasın */
+                box-shadow: none !important; /* Varsayılan mavi kenarlık olmasın */
+            }
+
+        .arrow {
+            margin-right: 0.5rem;
+        }
+
+        /* Sosyal İkonlar */
+        .social-icons a {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 2rem; /* İkon boyutu artırıldı */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+            .social-icons a:hover {
+                transform: scale(1.3); /* Daha büyük hover efekti */
+                color: #6a2e7b;
+            }
+
+        /* Bölüm Başlıkları */
+        .resume-section {
+            padding: 1rem 0;
+        }
+
+
+        .img-profile {
+            width: 150px;  
+            height: 150px; 
+            border-radius: 50%;  
+            border: 5px solid #fff;  
+            transition: transform 0.5s ease;  
+            object-fit: cover;  
+        }
+
+            .img-profile:hover {
+                transform: scale(1.1); /* Hover efekti */
+            }
+
+
+
+
+
+
+
+        /* Modal İçeriği Stil Güncellemesi */
+        .modal-content {
+            background: linear-gradient(135deg, #4d1e66, #d9a5c4);
+            color: #fff;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .modal-content:hover {
+                transform: scale(1.02);
+            }
+
+        /* Modal Başlık */
+        .modal-header h5 {
+            color: #ffdbf4;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Modal Kapatma Butonu */
+        .btn-close {
+            filter: invert(100%);
+            opacity: 0.8;
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+        }
+
+            .btn-close:hover {
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+            }
+
+        /* Kart Tasarımı Güncellenmiş */
+        .card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .card:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+            }
+
+        /* Proje Detay Butonu */
+        .btn-navbar, .btn-primary {
+            background-color: #4d1e66 !important;
+            color: #fff !important;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            .btn-navbar:hover, .btn-primary:hover {
+                background-color: #78226c !important;
+                transform: scale(1.05);
+            }
+
+        /* Modal İçindeki Görseller */
+        .modal-body img {
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+            .modal-body img:hover {
+                transform: scale(1.05);
+            }
+
+        /* Github Butonu */
+        .modal-body .btn-dark {
+            background-color: #360c49;
+            color: #fff;
+            padding: 12px 18px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            .modal-body .btn-dark:hover {
+                background-color: #4d1e66;
+                transform: scale(1.05);
+            }
+
+        /* Projeler Bölümü Başlık Stili */
+        h2.mb-5 {
+            color: #ffdbf4;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* Modal Kapatma Butonunu Gizle */
+        .modal-header .btn-close {
+            display: none !important;
+        }
+
+        /* Alternatif Kapatma Butonu (Modal İçinde) */
+        .modal-body::after {
+            content: "×";
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+
+            .modal-body::after:hover {
+                color: #ffdbf4;
+                transform: scale(1.2);
+            }
+
+
+
+
+
+        .row {
+            display: flex;
+            justify-content: center; /* Kartları ortalar */
+            flex-wrap: wrap; /* Taşma durumunda alt satıra geçmesini sağlar */
+        }
+
+
+
+        .card {
+            height: 100%; /* Kartları eşit yükseklikte tutar */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-body {
+            flex-grow: 1; /* Butonlar her zaman en alta yerleşir */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+
+
+
+        #experience h2 {
+            text-align: center; /* Başlığı ortalar */
+            margin-bottom: 40px;
+        }
+
+        #experience p {
+            line-height: 1.6; /* Okunabilirliği artırır */
+            margin-bottom: 20px;
+        }
+
+        #experience .resume-section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .card {
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .card:hover {
+                transform: scale(1.05); /* Üzerine gelindiğinde büyür */
+            }
+
+
+
+
+        .experience-item {
+            background: rgba(255, 255, 255, 0.1); /* Hafif saydam bir arka plan */
+            padding: 20px;
+            margin-bottom: 20px; /* Deneyimler arasında boşluk */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .experience-item:hover {
+                transform: scale(1.02); /* Üzerine gelince hafif büyür */
+            }
+
+
+
+            .experience-item h3 {
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #fff;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+            }
+
+            .experience-item p {
+                font-size: 1rem;
+                color: #ddd;
+                line-height: 1.6;
+            }
+
+
+
+
+        .experience-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Deneyimler arasında boşluk bırak */
+            width: 100%; /* Tam genişlikte göster */
+            text-align: center; /* Ortala */
+        }
+
+        .experience-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+
+
+        .blog-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* Kartlar arasında boşluk bırak */
+            justify-content: center; /* Kartları ortala */
+            padding: 20px 0;
+        }
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 320px; /* Kart genişliği */
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .blog-card:hover {
+                transform: translateY(-5px); /* Hover efekti */
+            }
+
+            .blog-card img {
+                width: 100%;
+                border-radius: 10px;
+            }
+
+            .blog-card .btn {
+                margin-top: 10px;
+            }
+
+
+
+
+
+        #blog {
+            padding-top: 20px; /* Üst boşluğu küçült */
+            margin-top: 0; /* Gereksiz boşlukları kaldır */
+        }
+
+        .resume-section-content {
+            padding: 10px 0; /* Üst ve alt boşluğu azalt */
+        }
+
+        .blog-container {
+            display: flex;
+            gap: 20px; /* Kartlar arasındaki boşluğu ayarla */
+            justify-content: center;
+            flex-wrap: wrap; /* Küçük ekranlarda alt alta gelsin */
+            margin-top: 10px; /* Başlık ile arayı daralt */
+        }
+
+        .blog-card {
+            width: 300px;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .resume-section-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .blog-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .blog-card {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+            .blog-card img {
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+
+
+
 </head>
 <body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <nav class="navbar navbar-expand-lg shadow-lg" id="sideNav">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Clarence Taylor</span>
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" 
-                                                 src="/startbootstrap-resume-gh-pages/assets/img/profile.jpg" alt="" /></span>
+            @foreach (var item in Model)
+            {
+                <span class="d-none d-lg-block">
+                    @if (!string.IsNullOrEmpty(item.Resim))
+                    {
+                        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="@item.Resim" alt="Profile Image" />
+                    }
+                    else
+                    {
+                        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="/startbootstrap-resume-gh-pages/assets/img/profile.jpg" alt="Default Profile Image" />
+                    }
+                </span>
+            }
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-
+                target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-
+                expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Hakkımda</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Deneyimlerim</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Eğitim Hayatım</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Yeteneklerim</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Hobilerim</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Sertifikalarım</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">İletişim</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">HAKKIMDA</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">PROJELER & DENEYİMLER  </a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">EĞİTİM</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">YETENEKLER</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">BLOG</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">SERTİFİKALAR</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">İLETİŞİM</a></li>
             </ul>
         </div>
     </nav>
-    <!-- Page Content-->
+
     <div class="container-fluid p-0">
-        <!-- About-->
+        <!-- Hakkımda -->
         @foreach (var x in Model)
         {
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        @x.Ad
-                        <span class="text-primary">@x.Soyad</span>
+                    <h1>
+                        @x.Ad <span>@x.Soyad</span>
                     </h1>
-                    <div class="subheading mb-5">
-                        @x.Adres ·  @x.Telefon ·
-                        <a href="@x.Mail">@x.Mail</a>
+                    <br />
+                    <div class="subheading">
+                        @x.Adres · @x.Telefon ·
+                        <a href="mailto:@x.Mail" class="mail-link">
+                            <span class="arrow">&#8594;</span>@x.Mail
+                        </a>
                     </div>
-                    <p class="lead mb-5">@x.Aciklama.</p>
-                    <div class="social-icons">
-                        <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="social-icon" href="#"><i class="fab fa-github"></i></a>
-                        <a class="social-icon" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="social-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <br />
+                    <p class="lead mb-5">@x.Aciklama</p>
+                    @Html.Action("SosyalMedya")
+                </div>
+            </section>
+            <hr class="m-0" />
+        }
+
+        <!-- Deneyimler -->
+
+
+        <section class="resume-section" id="experience">
+            <section class="resume-section" id="projects">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">GELİŞİRİLEN PROJELER</h2>
+                    <div class="row">
+
+                        <!-- Proje Kartı 1 -->
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-none">
+                                <img src="/resimler/ptakip.png" class="card-img-top" alt="
+Personel Takip Otomasyonu            ">
+                                <div class="card-body text-center">
+                                    <button type="button" class="btn btn-navbar" data-bs-toggle="modal" data-bs-target="#proje1Modal">
+                                        Detayları Gör
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proje 1 Modal -->
+                        <div class="modal fade" id="proje1Modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-dialog">Personel Takip Otomasyonu </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="/resimler/ptakip.png" class="img-fluid mb-3" alt="Personel Takip Otomasyonu ">
+                                        <p>Personel yönetimi süreçlerini kolaylaştırmak için geliştirilen bir yazılım çözümü , desktop uygulamasıdır Bu proje, C# dili, LINQ to SQL ve Katmanlı Mimari kullanılarak inşa edilmiştir. Uygulama, personel ekleme, güncelleme, silme, izin yönetimi ve maaş işlemleri gibi özellikleri içermektedir. Ayrıca, yönetici paneli sayesinde kullanıcılar, yetkilendirilmiş işlemleri gerçekleştirebilir.</p>
+                                        <a href="https://github.com/ipekmelisayilmaz/PersonelTakipOto.git" target="_blank" class="btn btn-dark">GitHub'da Gör</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proje Kartı 2 -->
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="/resimler/stoktakip.png" class="card-img-top" alt="Stok Takip Otomasyonu">
+                                <div class="card-body text-center">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#proje2Modal">
+                                        Detayları Gör
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proje 2 Modal -->
+                        <div class="modal fade" id="proje2Modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Stok Takip Otomasyonu</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="/resimler/stoktakip.png" class="img-fluid mb-3" alt="Stok Takip Otomasyonu">
+                                        <p>C#, ADO.NET ve MSSQL teknolojileri ile geliştirilmiş bir desktop uygulamasıdır . Uygulama, ürün, müşteri, satış ,stok ve kategori verilerinin yönetilmesini sağlar. Kullanıcılar, ürün ekleme, güncelleme, silme , satış işlemleri ve stok durumu bilgilerini takip edebilir. Stok seviyesi belirlenen bir eşik değerin altına düştüğünde uyarı sistemi devreye girer ayrıca Silinen kayıtlar Listelenip Geri Getirilebilir.</p>
+                                        <a href="https://github.com/ipekmelisayilmaz/StokTakipOto.git" target="_blank" class="btn btn-dark">GitHub'da Gör</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proje Kartı 3 -->
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="~/resimler/loginn.png" class="card-img-top" alt="Kişisel Web Sitesi">
+                                <div class="card-body text-center">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#proje3Modal">
+                                        Detayları Gör
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Proje 3 Modal -->
+                        <div class="modal fade" id="proje3Modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Kişisel Web Sitesi</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="~/resimler/loginn.png" class="img-fluid mb-3" alt="Kişisel Web Sitesi">
+                                        <p>
+                                            Mevcutta bulunduğunuz web sitesi : Bu proje, MVC5 teknolojisini kullanarak oluşturulmuş dinamik bir web sitesidir  Admin paneli ve kullanıcı paneli içeren bu proje, hem kişisel hem de profesyonel portföylerin yönetilmesine olanak tanır.
+                                            Proje, MSSQL veri tabanı, LINQ sorgulamaları ve dinamik içerik yönetimi kullanılarak geliştirilmiştir . Ayrıca, admin paneli sayesinde kullanıcılar, CV'lerini kolayca güncelleyebilir, deneyimlerini ekleyebilir ve projelerini sergileyebilirler.
+
+                                        </p>
+                                        <a href="https://github.com/ipekmelisayilmaz/CvSitesi.git" target="_blank" class="btn btn-dark">GitHub'da Gör</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- Proje Kartı 4 -->
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="~/resimler/ticari.png" class="card-img-top" alt="Ticari Otomasyon">
+                                <div class="card-body text-center">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#proje4Modal">
+                                        Detayları Gör
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Proje 4 Modal -->
+                        <div class="modal fade" id="proje4Modal" tabindex="-1" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Ticari Otomasyon Sitesi</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <img src="/resimler/ticari.png" class="img-fluid mb-3" alt="Ticari Otomasyon Sitesi">
+                                        <p>
+                                            Projenin temel hedefi, kullanıcıların işlem süreçlerini kolaylaştırarak zamandan tasarruf
+                                            sağlamaktır. Bu doğrultuda, modern web teknolojileri ve gelişmiş veritabanı yönetim
+                                            tekniklerinin entegrasyonu sağlanarak sistemin performansı artırılmış ve kullanım kolaylığı ön
+                                            planda tutulmuştur. Özellikle MVC (Model-View-Controller) mimarisi kullanılarak, uygulamanın
+                                            modüler ve sürdürülebilir bir yapıda geliştirilmesi amaçlanmıştır. Ayrıca, Entity Framework Code
+                                            First yaklaşımı ile veritabanı modellemesi gerçekleştirilmiş, LINQ sorguları kullanılarak
+                                            veritabanı işlemleri optimize edilmiştir. Lisans bitirme projesi kapsamında projeye devam etmekteyim
+
+                                        </p>
+                                        <a href="https://github.com/ipekmelisayilmaz/MvcOnlineTicariOtomasyon.git" target="_blank" class="btn btn-dark">GitHub'da Gör</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
-        }
+        </section>
+
+        @Html.Action("Deneyim")
+
         <hr class="m-0" />
 
-        <!-- Experience-->
-        <section class="resume-section" id="experience">
-            @Html.Action("Deneyim")
-        </section>
-        <hr class="m-0" />
-        <!-- Education-->
+        <!-- Eğitim -->
         <section class="resume-section" id="education">
             @Html.Action("Egitimlerim")
         </section>
         <hr class="m-0" />
-        <!-- Skills-->
+
+        <!-- Yetenekler -->
         <section class="resume-section" id="skills">
             @Html.Action("Yeteneklerim")
         </section>
+
         <hr class="m-0" />
-        <!-- Interests-->
+
         <section class="resume-section" id="interests">
             @Html.Action("Hobilerim")
         </section>
+
         <hr class="m-0" />
-        <!-- Awards-->
+
+        <section class="resume-section" id="blog">
+            <div class="resume-section-content">
+                <h2 class="mb-5">BLOG YAZILARIM</h2>
+                <div class="blog-container">
+                    <!-- Blog Kartı 1 -->
+                    <div class="blog-card">
+                        <img src="~/resimler/OopsS.png" alt="OOP Blog Yazısı">
+                        <h3>Nesne Yönelimli Programlama</h3>
+                        <a href="https://medium.com/ipekmelisayilmaz/c-dilinde-oop-nesne-y%C3%B6nelimli-programlaman%C4%B1n-temel-i%CC%87lkeleri-3e9296c7dda6"
+                           target="_blank" class="btn btn-primary">
+                            Medium'da Gör
+                        </a>
+                    </div>
+
+                    <!-- Blog Kartı 2 -->
+                    <div class="blog-card">
+                        <img src="~/resimler/github.png" alt="GitHub Blog Yazısı">
+                        <h3>GitHub Kullanımı ve İpuçları</h3>
+                        <a href="https://medium.com/ipekmelisayilmaz/yaz%C4%B1l%C4%B1m-geli%C5%9Ftirme-d%C3%BCnyas%C4%B1nda-projelerin-y%C3%B6netimi-ve-i%C5%9Fbirli%C4%9Fi-ba%C5%9Far%C4%B1ya-ula%C5%9Fman%C4%B1n-anahtar-ceb1df71f23c"
+                           target="_blank" class="btn btn-primary">
+                            Medium'da Gör
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sertifikalar -->
         <section class="resume-section" id="awards">
             @Html.Action("Sertifikalar")
         </section>
         <hr class="m-0" />
-        <!-- contact-->
+
+        <!-- İletişim -->
+
         <section class="resume-section" id="contact">
             @Html.Action("iletisim")
         </section>
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="/startbootstrap-resume-gh-pages/js/scripts.js"></script>
+    <!-- Bootstrap 5 için Gerekli JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

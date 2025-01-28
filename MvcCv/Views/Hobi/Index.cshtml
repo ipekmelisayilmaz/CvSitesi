@@ -1,0 +1,57 @@
+﻿@using MvcCv.Models.Entity
+@model List<TblHobilerim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Hobi Düzenleme Sayfası</h2>
+<br />
+<form method="post" style="width: 100%; padding: 0; margin: 0;">
+    @foreach (var item in Model)
+    {
+        <label class="form-control"> Açıklama-1</label>
+        <textarea rows="10" class="form-control" name="Aciklama1">@item.Aciklama1</textarea>
+        <label class="form-control"> Açıklama-2</label>
+        <textarea rows="10" class="form-control" name="Aciklama2">@item.Aciklama2</textarea>
+
+    }
+    <br />
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+</form>
+
+
+
+
+
+<style>
+    form {
+        width: 100%; /* Tam genişlikte olmasını sağlar */
+        margin: 0; /* Ortadan hizalama veya boşlukları kaldırır */
+        padding: 20px; /* İç kenar boşlukları */
+        box-sizing: border-box; /* Taşmayı engeller */
+    }
+
+    body {
+        margin: 0; /* Sayfanın kenar boşluklarını kaldır */
+        padding: 0;
+    }
+
+    textarea.form-control {
+        width: 100%; /* Her bir form elemanının tam genişlikte olması */
+        resize: none; /* Yeniden boyutlandırmayı kapatır */
+    }
+
+    button {
+        width: auto; /* Butonun genişliği içeriğe uygun olur */
+    }
+</style>
+
+
+
+
+
+
+
+

@@ -1,0 +1,147 @@
+﻿@using MvcCv.Models.Entity
+@model List<Tbliletisim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Genel arka plan ve layout ayarları */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #d9a5c4, #78226c); /* İstediğiniz gradient */
+            color: #ffffff; /* Yazı rengi beyaz */
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            margin: 0;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .container-fluid {
+            width: 100%; /* Full genişlik */
+            padding: 0; /* İç dolgu kaldırıldı */
+            margin: 0; /* Kenar boşlukları kaldırıldı */
+        }
+
+        .card-body {
+            margin: 0 auto;
+            padding: 0;
+            width: 90%; /* Daha düzgün bir genişlik (ekranın %90'ı) */
+        }
+
+        .table-info {
+            width: 100%;
+        }
+
+        .timeline {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+            .timeline .time-label {
+                width: 100%;
+                text-align: left;
+                margin-bottom: 20px;
+            }
+
+        .timeline-item {
+            width: 100%; /* Kart genişliği */
+            margin: 0 0 20px 0;
+            padding: 15px;
+            background-color: #ffffff; /* Beyaz arka plan */
+            color: #333; /* Yazı rengi */
+            border: 1px solid #ddd; /* Hafif bir çerçeve */
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+        }
+
+        .timeline-header a {
+            font-weight: bold;
+            color: #78226c;  Başlık rengi 
+            text-decoration: none;
+        }
+
+            .timeline-header a:hover {
+                text-decoration: underline;
+            }
+
+        .timeline .bg-info {
+            color: #ffffff;
+            background-color: #d9a5c4;  Label arka plan rengi 
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .timeline .bg-warning {
+            color: #ffffff;
+            background-color: #78226c;  Simge arka plan rengi 
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 16px;
+        }
+
+        .timeline-body {
+            margin-top: 10px;
+            color: #333;  Mesaj yazı rengi 
+            font-size: 14px;
+        }
+
+        .time {
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <section class="content">
+        <div class="select2-dark">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-avatar" id="timeline">
+                                <!-- The timeline -->
+                                <div class="timeline">
+                                    @foreach (var item in Model)
+                                    {
+                                        <!-- timeline time label -->
+                                    <div class="time-label">
+                                        <span class="bg-info">
+                                            @(item.Tarih != null ? ((DateTime)item.Tarih).ToString("dd MMMM yyyy HH.mm") : "Tarih yok")
+                                        </span>
+
+
+                                    </div>
+
+                                        <div>
+                                            <i class="fas fa-comments bg-warning"></i>
+                                            <div class="timeline-item">
+                                                <span class="time"><i class="far fa-clock"></i> @item.Mail</span>
+                                                <h3 class="timeline-header">
+                                                    <a href="#">@item.Adsoyad</a> @item.Konu
+                                                </h3>
+                                                <div class="timeline-body">
+                                                    @item.Mesaj
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    
+                                </div>
+                            </div>
+                        </div><!-- /.card-body -->
+                    </div>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+</body>
+</html>
